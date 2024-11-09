@@ -35,25 +35,24 @@ public class CounselServiceTest {
   @Test
   void Should_ReturnResponseOfNewCounselEntity_When_RequestCounsel() {
     Counsel entity = Counsel.builder()
-        .name("Member Kim")
-        .cellPhone("010-1111-2222")
-        .email("mail@abc.de")
-        .memo("I hope to get a loan")
-        .zipCode("123456")
-        .address("Somewhere in Gangnam-gu, Seoul")
-        .addressDetail("What Apartment No. 101, 1st floor No. 101")
-        .build();
+            .name("member Kim")
+            .cellPhone("010-1111-2222")
+            .email("abc@def.g")
+            .memo("저는 대출을 받고 싶어요. 연락을 주세요.")
+            .zipCode("12345")
+            .address("서울특별시 어딘구 모른동")
+            .adressDetail("101동 101호")
+            .build();
 
     Request request = Request.builder()
-        .name("Member Kim")
-        .cellPhone("010-1111-2222")
-        .email("mail@abc.de")
-        .memo("I hope to get a loan")
-        .zipCode("123456")
-        .address("Somewhere in Gangnam-gu, Seoul")
-        .addressDetail("What Apartment No. 101, 1st floor No. 101")
-        .build();
-
+            .name("member Kim")
+            .cellPhone("010-1111-2222")
+            .email("abc@def.g")
+            .memo("저는 대출을 받고 싶어요. 연락을 주세요.")
+            .zipCode("12345")
+            .address("서울특별시 어딘구 모른동")
+            .addressDetail("101동 101호")
+            .build();
     when(counselRepository.save(ArgumentMatchers.any(Counsel.class))).thenReturn(entity);
 
     Response actual = counselService.create(request);
@@ -63,15 +62,15 @@ public class CounselServiceTest {
 
   @Test
   void Should_ReturnResponseOfExistCounselEntity_When_RequestExistCounselId() {
-    Long findId = 1L;
+    Long findId =1L;
 
     Counsel entity = Counsel.builder()
-        .counselId(1L)
-        .build();
+            .conuselId(1L)
+            .build();
 
     when(counselRepository.findById(findId)).thenReturn(Optional.ofNullable(entity));
 
-    Response actual = counselService.get(1L);
+    Response actual = counselService.get(findId);
 
     assertThat(actual.getCounselId()).isSameAs(findId);
   }
@@ -82,7 +81,7 @@ public class CounselServiceTest {
 
     when(counselRepository.findById(findId)).thenThrow(new BaseException(ResultType.SYSTEM_ERROR));
 
-    Assertions.assertThrows(BaseException.class, () -> counselService.get(2L));
+    Assertions.assertThrows(BaseException.class, () -> counselService.get(findId));
   }
 
   @Test
@@ -90,14 +89,14 @@ public class CounselServiceTest {
     Long findId = 1L;
 
     Counsel entity = Counsel.builder()
-        .counselId(1L)
-        .name("Member Kim")
-        .build();
+            .conuselId(1L)
+            .name("Member Kim")
+            .build();
 
     Request request = Request.builder()
-        .name("Member Kang")
-        .build();
-
+            .name("Member Kang")
+            .build();
+    // 목킹 처리?
     when(counselRepository.save(ArgumentMatchers.any(Counsel.class))).thenReturn(entity);
     when(counselRepository.findById(findId)).thenReturn(Optional.ofNullable(entity));
 
@@ -112,9 +111,10 @@ public class CounselServiceTest {
     Long targetId = 1L;
 
     Counsel entity = Counsel.builder()
-        .counselId(1L)
-        .build();
+            .conuselId(1L)
+            .build();
 
+    // 목킹 처리?
     when(counselRepository.save(ArgumentMatchers.any(Counsel.class))).thenReturn(entity);
     when(counselRepository.findById(targetId)).thenReturn(Optional.ofNullable(entity));
 

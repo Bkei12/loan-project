@@ -16,26 +16,26 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ResultObject implements Serializable {
 
-  public String code;
+    public String code;
 
-  public String desc;
+    public String desc;
 
-  public ResultObject(ResultType resultType) {
-    this.code = resultType.getCode();
-    this.desc = resultType.getDesc();
-  }
+    public ResultObject(ResultType resultType) {
+        this.code = resultType.getCode();
+        this.desc = resultType.getDesc();
+    }
 
-  public ResultObject(ResultType resultCode, String message) {
-    this.code = resultCode.getCode();
-    this.desc = message;
-  }
+    public ResultObject(ResultType resultCode, String message) {
+        this.code = resultCode.getCode();
+        this.desc = message;
+    }
 
-  public ResultObject(BaseException e) {
-    this.code = e.getCode();
-    this.desc = e.getDesc();
-  }
+    public ResultObject(BaseException e) {
+        this.code = e.getCode();
+        this.desc = e.getDesc();
+    }
 
-  public static ResultObject getSuccess() {
-    return new ResultObject(ResultType.SUCCESS);
-  }
+    public static ResultObject getSuccess() {
+        return new ResultObject(ResultType.SUCCESS);
+    }
 }

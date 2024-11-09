@@ -1,64 +1,60 @@
 package com.fastcampus.loan.dto;
 
-import java.io.Serializable;
+import lombok.*;
+
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-public class CounselDTO implements Serializable {
+public class CounselDTO {
 
-  @NoArgsConstructor
-  @AllArgsConstructor
-  @Builder
-  @Getter
-  @Setter
-  public static class Request {
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @Builder
+    public static class Request {
 
-    private String name;
+        private String name;
 
-    private String cellPhone;
+        private String cellPhone;
 
-    private String email;
+        private String email;
 
-    private String memo;
+        private String memo;
 
-    private String address;
+        private String address;
 
-    private String addressDetail;
+        private String addressDetail;
 
-    private String zipCode;
-  }
+        private String zipCode;
 
-  @NoArgsConstructor
-  @AllArgsConstructor
-  @Builder
-  @Getter
-  @Setter
-  public static class Response {
+    }
 
-    private Long counselId;
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    @Getter
+    @Setter
+    public static class Response {
 
-    private String name;
+        private Long counselId;
+        private String name;
 
-    private String cellPhone;
+        private String cellPhone;
 
-    private String email;
+        private String email;
 
-    private String memo;
+        private String memo;
 
-    private String address;
+        private String address;
 
-    private String addressDetail;
+        private String addressDetail;
 
-    private String zipCode;
+        private String zipCode;
 
-    private LocalDateTime appliedAt;
+        private LocalDateTime appliedAt;
 
-    private LocalDateTime createdAt;
+        private LocalDateTime createdAt;
 
-    private LocalDateTime updatedAt;
-  }
+        private LocalDateTime updatedAt;
+
+    }
 }

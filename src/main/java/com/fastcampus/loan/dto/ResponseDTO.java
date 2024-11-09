@@ -17,31 +17,31 @@ import lombok.Setter;
 @JsonInclude
 public class ResponseDTO<T> implements Serializable {
 
-  private ResultObject result;
+    private ResultObject result;
 
-  private T data;
+    private T data;
 
-  public ResponseDTO(ResultObject result) {
-    this.result = result;
-  }
+    public ResponseDTO(ResultObject result) {
+        this.result = result;
+    }
 
-  public ResponseDTO(T data) {
-    this.data = data;
-  }
+    public ResponseDTO(T data) {
+        this.data = data;
+    }
 
-  public static <T> ResponseDTO<T> ok() {
-    return new ResponseDTO<>(ResultObject.getSuccess());
-  }
+    public static <T> ResponseDTO<T> ok() {
+        return new ResponseDTO<>(ResultObject.getSuccess());
+    }
 
-  public static <T> ResponseDTO<T> ok(T data) {
-    return new ResponseDTO<>(ResultObject.getSuccess(), data);
-  }
+    public static <T> ResponseDTO<T> ok(T data) {
+        return new ResponseDTO<>(ResultObject.getSuccess(), data);
+    }
 
-  public static <T> ResponseDTO<T> response(T data) {
-    return new ResponseDTO<>(ResultObject.getSuccess(), data);
-  }
+    public static <T> ResponseDTO<T> response(T data) {
+        return new ResponseDTO<>(ResultObject.getSuccess(), data);
+    }
 
-  public ResponseDTO(BaseException ex) {
-    this.result = new ResultObject(ex);
-  }
+    public ResponseDTO(BaseException ex) {
+        this.result = new ResultObject(ex);
+    }
 }
