@@ -1,6 +1,7 @@
 package com.fastcampus.loan.service;
 
 import com.fastcampus.loan.dto.ApplicationDTO;
+import com.fastcampus.loan.dto.ResponseDTO;
 
 public interface ApplicationService {
 
@@ -9,4 +10,6 @@ public interface ApplicationService {
     ApplicationDTO.Response get(Long applicationId);
 
     ApplicationDTO.Response update(Long applicationId, ApplicationDTO.Request request);
+
+    void delete(Long applicationId);
 }
